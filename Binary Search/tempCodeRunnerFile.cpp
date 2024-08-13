@@ -1,0 +1,1 @@
+cout<<"the no of unique pair are:"<<findPairs2(nums,2)
