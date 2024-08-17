@@ -19,7 +19,7 @@ using namespace std;
         if(dp[n] != -1) {
             return dp[n];
         }
-        //step2: replace ans woth dp[n]
+        //step2: replace ans with dp[n]
         dp[n] = topDownSolve(n-1,dp) + topDownSolve(n-2, dp);
         return dp[n];
     }
