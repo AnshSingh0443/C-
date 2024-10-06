@@ -207,6 +207,41 @@ Node* deleteNodeInBST(Node* root, int target) {
 	return root;
 }
 
+Node* Inorder_Successor(Node* root,Node * x){
+	//Inorder succ->node x se just bada
+	Node*succ=0;
+	Node*curr=root;
+
+	while(curr){
+		if(curr->data > x->data){
+			succ=curr;
+			//try to find lesser
+			curr=curr->left;
+		}
+		else{
+			curr=curr->right;
+		}
+	}
+	return succ;
+}
+
+Node* Inorder_predecessor(Node* root,Node * y){
+	//Inorder succ->node x se just chota
+	Node*pred=0;
+	Node*curr=root;
+
+	while(curr){
+		if(curr->data < y->data){
+			pred=curr;
+			//try to find bigger
+			curr=curr->right;
+		}
+		else{
+			curr=curr->left;
+		}
+	}
+	return pred;
+}
 
 
 int main() {
@@ -217,6 +252,19 @@ int main() {
 	  cout << "Printing the tree" << endl;
 	  levelOrderTraversal(root);
 	  cout << endl;
+
+
+	  cout<<"finding inorder succ of 4"<<endl;
+	  Node*x=new Node(4);
+	  Node*Res=Inorder_Successor(root,x);
+	  cout<<":"<<Res->data<<endl;
+
+
+	  cout<<"finding inorder pred of 5"<<endl;
+	  Node*y=new Node(5);
+	  Node*res=Inorder_predecessor(root,y);
+	  cout<<":"<<res->data<<endl;
+
 	//   cout << "Printing Inorder: " << endl;
 	//   inOrderTraversal(root);
 	//   cout << endl;
